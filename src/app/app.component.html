@@ -1,8 +1,8 @@
 <div class="container">
-  <div class="dogs-data">
+  <div class="header">
     <h1>Psintagram</h1>
     <div class="dogs-list" *ngIf="breedsData">
-      <select (change)=showDetails() [(ngModel)]="selectedBreed">
+      <select (change)=showDogsDetails() [(ngModel)]="selectedBreed">
         <option>--wybierz rasę--</option>
         <option *ngFor=" let dog of dogs">
           {{ dog }}
@@ -11,6 +11,7 @@
       </select>
     </div>
   </div>
+
   <div class="dogs-details">
     <!--<img src={{dogImage.message}}> -->
   </div>

@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+
+.dogs-details {
+  margin-top: 100px;
+}
+.dogs-details .dog-img {
+  max-width: min(400px, 70vw);
+}
+.dogs-details p {
+  font-size: 24px;
+}
+
+.dogs-details a {
+  text-transform: capitalize;
+  color: #2da7fd;
+}

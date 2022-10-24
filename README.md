@@ -1,3 +1,14 @@
+# Overview
+This is a solution to a recruitment assingment. 
+
+- Live Site URL: [Myapp Dog Api](https://my-app-dog-api.netlify.app/)
+
+Users should be able to :
+-Select a dog breed and see an image of chosen breed and active link to wikipedia page with more info
+
+# Screenshot
+![](src/assets/dogapiscreenshot.jpg)
+
 # MyApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.

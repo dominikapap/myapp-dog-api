@@ -18,8 +18,6 @@ breedsData?: DogBreeds;
 dogImage? : any;
 dogs?:any ;
 selectedBreed:string = "--wybierz rasę--";
-myUrl: any;
-letsContinue?: boolean = false;
 
   ngOnInit(): void {
     this.dogBreeds.getBreedsData()
@@ -27,59 +25,51 @@ letsContinue?: boolean = false;
       next: (response) => {
         this.breedsData = response;
         return  this.dogs = Object.keys(this.breedsData.message);
-      }
+      },
+      error: (e) => {
+        console.log(e);
+        alert("Coś poszło nie tak, spróbuj ponownie później");
+      },
     })
-   
   }
 
  
 
-showDetails(){
+showDogsDetails(){
 
-  let dogsDetail = document.querySelector('.dogs-details') as HTMLElement;
-    
-      
+  let dogsDetails = document.querySelector('.dogs-details') as HTMLElement;
+
   if (this.selectedBreed === "--wybierz rasę--"){
-      dogsDetail.innerHTML = ''
+      dogsDetails.innerHTML = ''
   }else {
-
     this.dogBreeds.getDogImage(this.selectedBreed)
       .subscribe({
         next: (response) => {
-          dogsDetail.innerHTML = `
-    <img src = ${response.message} class="dog-img">
-    <p> Poczytaj więcej o tej rasie na Wikipedii:
-      <a href= "https://en.wikipedia.org/wiki/${this.selectedBreed}" target="_blank">${this.selectedBreed}</a>
-    </p>`;
-    
-    let dogImg: HTMLImageElement = document.createElement('img');
-    dogImg.setAttribute('src', response.message.toString());
-    dogImg.classList.add('dog-img');
+        dogsDetails.innerHTML='';
+        let dogImg: HTMLImageElement = document.createElement('img');
+        dogImg.setAttribute('src', response.message.toString());
+        dogImg.setAttribute('alt', this.selectedBreed);
+        dogImg.classList.add('dog-img');
 
-    let p : HTMLParagraphElement = document.createElement('p');
-    p.textContent = "Poczytaj więcej o tej rasie na Wikipedii:"
+        let p : HTMLParagraphElement = document.createElement('p');
+        p.textContent = "Poczytaj więcej o tej rasie na Wikipedii: "
 
-    let a : HTMLAnchorElement  = document.createElement('a');
-    a.textContent = this.selectedBreed;
-    a.href = "https://en.wikipedia.org/wiki/${this.selectedBreed}";
-    p.append(a);
-    dogsDetail.append(dogImg, p);
-
-          
-        }
+        let a : HTMLAnchorElement  = document.createElement('a');
+        a.textContent = this.selectedBreed;
+        a.href = "https://en.wikipedia.org/wiki/${this.selectedBreed}";
+        p.append(a);
+        
+        dogsDetails.append(dogImg, p)
+        }, error: (e) => {
+          console.log(e);
+          alert("Coś poszło nie tak, spróbuj ponownie później");
+        },
       })
-  /*this.getImage(this.selectedBreed);
-
-
-    dogsDetail.innerHTML = `
-    <img src = ${this.dogImage}>
-    <p> Poczytaj więcej o tej rasie na Wikipedii:
-      <a href = "https://en.wikipedia.org/wiki/${this.selectedBreed}">${this.selectedBreed}</a>
-    </p>`;*/
-   
-  } }
+  } 
+}
     
 }
+
 
 
 
