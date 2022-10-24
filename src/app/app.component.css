@@ -16,7 +16,7 @@ body {
   align-items: center;
   flex-direction: column;
   width: 100%;
-  background-image: url("assets/group-portrait-adorable-puppies.jpg");
+  background-image: url("src/assets/group-portrait-adorable-puppies.jpg");
   background-color: #d4e5f3;
   background-size: cover;
   background-position: center top;
