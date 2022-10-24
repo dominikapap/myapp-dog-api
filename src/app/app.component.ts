@@ -56,7 +56,7 @@ export class AppComponent implements OnInit {
 
           let a : HTMLAnchorElement  = document.createElement('a');
           a.textContent = this.selectedBreed;
-          a.href = "https://en.wikipedia.org/wiki/${this.selectedBreed}";
+          a.href = `https://en.wikipedia.org/wiki/${this.selectedBreed}`;
           p.append(a);
           
           dogsDetails.append(dogImg, p)
