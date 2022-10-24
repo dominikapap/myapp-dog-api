@@ -15,7 +15,6 @@ export class AppComponent implements OnInit {
   }
 
   breedsData?: DogBreeds;
-  dogImage? : any;
   dogs?:any ;
   selectedBreed:string = "--wybierz rasę--";
 
@@ -61,7 +60,7 @@ export class AppComponent implements OnInit {
           p.append(a);
           
           dogsDetails.append(dogImg, p)
-          
+
           }, error: (e) => {
             console.log(e);
             alert("Coś poszło nie tak, spróbuj ponownie później");
