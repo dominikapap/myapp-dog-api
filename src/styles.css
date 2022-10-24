@@ -1,8 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 
-.dogs-details {
-  margin-top: 100px;
-}
 .dogs-details .dog-img {
   max-width: min(400px, 70vw);
 }
