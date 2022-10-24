@@ -38,6 +38,7 @@ h1 {
 
 .dogs-details {
   margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .dogs-details:not(:empty) {
